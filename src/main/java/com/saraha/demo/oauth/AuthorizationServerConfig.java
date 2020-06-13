@@ -10,6 +10,7 @@ import org.springframework.security.oauth2.config.annotation.configurers.ClientD
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
+import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
 import org.springframework.security.oauth2.provider.token.TokenEnhancerChain;
 import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
@@ -36,6 +37,11 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 		configurer.inMemory().withClient(Constants.CLIENT_APPLICATION_NAME)
 				.secret(Constants.CLIENT_APPLICATION_PASSWORD).authorizedGrantTypes("password", "refresh_token")
 				.scopes("write");
+	}
+
+	@Override
+	public void configure(AuthorizationServerSecurityConfigurer oauthServer) throws Exception {
+		oauthServer.allowFormAuthenticationForClients();
 	}
 
 	/**
