@@ -116,9 +116,17 @@ public class MessageServiceImpl implements MessageService {
 				backendResponseMessageDTOList.get(i).setBackendResponseUserDTO(new BackendResponseUserDTO());
 				backendResponseMessageDTOList.get(i).setBackendResponsePersonDTO(new BackendResponsePersonDTO());
 
-				modelMapper.map(message.getUser(), backendResponseMessageDTOList.get(i).getBackendResponseUserDTO());
-				modelMapper.map(message.getPerson(),
-						backendResponseMessageDTOList.get(i).getBackendResponsePersonDTO());
+				if (message.getUser() != null) {
+
+					modelMapper.map(message.getUser(),
+							backendResponseMessageDTOList.get(i).getBackendResponseUserDTO());
+				}
+
+				if (message.getPerson() != null) {
+
+					modelMapper.map(message.getPerson(),
+							backendResponseMessageDTOList.get(i).getBackendResponsePersonDTO());
+				}
 
 				i++;
 			}
