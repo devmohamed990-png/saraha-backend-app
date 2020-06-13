@@ -41,7 +41,7 @@ public class FacebookServiceImpl implements FacebookService {
 
 		oAuth2Parameters = new OAuth2Parameters();
 
-		oAuth2Parameters.setRedirectUri("https://saraadb.herokuapp.com/api/send-message");
+		oAuth2Parameters.setRedirectUri("https://saraa-app.herokuapp.com/api/send-message");
 		oAuth2Parameters.setScope("email,public_profile");
 
 		String url = oAuth2Operations.buildAuthenticateUrl(oAuth2Parameters);
