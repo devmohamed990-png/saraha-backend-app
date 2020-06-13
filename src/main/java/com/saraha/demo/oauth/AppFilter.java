@@ -35,7 +35,7 @@ public class AppFilter implements Filter {
 		response.setHeader("Access-Control-Allow-Credentials", "true");
 		response.setHeader("Access-Control-Allow-Headers",
 				"Origin, X-Requested-With, Content-Type, Accept, Authorization, apiToken, tenantId");
-		response.setHeader("Content-Type","application/x-www-form-urlencoded");
+
 		if (request.getMethod().equals(HttpMethod.OPTIONS.name())) {
 			response.setStatus(HttpStatus.NO_CONTENT.value());
 		} else {
