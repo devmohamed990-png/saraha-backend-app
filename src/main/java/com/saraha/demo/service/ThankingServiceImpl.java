@@ -44,7 +44,7 @@ public class ThankingServiceImpl implements ThankingService {
 
 		oAuth2Operations = factory.getOAuthOperations();
 
-		accessToken = oAuth2Operations.exchangeForAccess(authorizationCode, "http://localhost:8080/api/send-message",
+		accessToken = oAuth2Operations.exchangeForAccess(authorizationCode, "https://saraadb.herokuapp.com/api/send-message",
 				null);
 
 		connection = factory.createConnection(accessToken);
