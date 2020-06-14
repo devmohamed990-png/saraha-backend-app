@@ -23,7 +23,7 @@ public class SocialFacebookController {
 	private FacebookService facebookService;
 
 	@PostMapping(value = "/facebook-token", produces = MediaType.APPLICATION_JSON_VALUE)
-	public Map<String, String> producer(@RequestBody("message") String message,
+	public Map<String, String> producer(@RequestBody String message,
 			@RequestParam("randomNumber") long randomNumber, @RequestParam("key") long key) {
 
 		return facebookService.producer(message, randomNumber, key);
