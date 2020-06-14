@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import com.saraha.demo.service.FacebookService;
 
@@ -22,7 +23,7 @@ public class SocialFacebookController {
 	private FacebookService facebookService;
 
 	@PostMapping(value = "/facebook-token", produces = MediaType.APPLICATION_JSON_VALUE)
-	public Map<String, String> producer(@RequestParam("message") String message,
+	public Map<String, String> producer(@RequestBody("message") String message,
 			@RequestParam("randomNumber") long randomNumber, @RequestParam("key") long key) {
 
 		return facebookService.producer(message, randomNumber, key);
