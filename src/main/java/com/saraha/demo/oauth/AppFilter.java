@@ -17,7 +17,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 
 @Component
-@Order(Ordered.HIGHEST_PRECEDENCE)
 public class AppFilter implements Filter {
 
 	@Override
@@ -35,10 +34,7 @@ public class AppFilter implements Filter {
 		response.setHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
 		response.setHeader("Access-Control-Allow-Credentials", "true");
 		response.setHeader("Access-Control-Allow-Headers",
-				"Origin, X-Requested-With, Content-Type, Accept, Authorization, apiToken, tenantId");
-
-		request.setHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
-		
+				"Origin, X-Requested-With, Content-Type, Accept, Authorization, apiToken, tenantId");		
 		if (request.getMethod().equals(HttpMethod.OPTIONS.name())) {
 			response.setStatus(HttpStatus.NO_CONTENT.value());
 		} else {
